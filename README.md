@@ -79,4 +79,4 @@ sudo bash ./scripts/finalize.sh
 - Todos los scripts deben ejecutarse con permisos de superusuario (`sudo`).
 - Lee los mensajes y advertencias que aparecen en cada script antes de continuar.
 - Asegúrate de cumplir los requisitos previos indicados en cada paso para evitar errores.
-- Dar permisos con `chmod +x (path)` para ejecutar, posteriormente
+- Dar permisos con `chmod +x (path)` para ejecutarlos posteriormente.
