@@ -39,16 +39,18 @@ raspberry-4g-router/
 └── .gitignore
 ```
 
-Instrucciones de uso
-Paso 1: Preparar el sistema
-    Asegúrate de que la Raspberry Pi esté conectada a Internet por cable Ethernet.
-    Desconecta el módem 4G (HAT) USB de la Raspberry Pi.
-    Ejecuta el script prepare.sh:
+## Instrucciones de uso
+### Paso 1: Preparar el sistema
+- Asegúrate de que la Raspberry Pi esté conectada a Internet por cable Ethernet.
+- Desconecta el módem 4G (HAT) USB de la Raspberry Pi.
+- Ejecuta el script prepare.sh:
     
 ```plaintext
 sudo bash ./scripts/setup/prepare.sh
 ```
 
 El script desactivará NetworkManager, instalará dependencias y reiniciará la Raspberry Pi.
-
 Luego conecta el módem 4G por USB y continúa al siguiente paso.
+
+### Paso 2: Configurar IP estática y DNS
+
