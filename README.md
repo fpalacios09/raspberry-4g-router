@@ -35,8 +35,7 @@ raspberry-4g-router/
 │   ├── configure.sh         # Paso 2: Configurar IP y red
 │   └── finalize.sh          # Paso 3: Activar módem y NAT
 ├── README.md
-├── LICENSE
-└── .gitignore
+└── LICENSE
 ```
 
 ## Instrucciones de uso
