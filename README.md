@@ -53,4 +53,30 @@ El script desactivará NetworkManager, instalará dependencias y reiniciará la 
 Luego conecta el módem 4G por USB y continúa al siguiente paso.
 
 ### Paso 2: Configurar IP estática y DNS
+- Asegúrate de que la Raspberry Pi esté conectada a Internet por cable Ethernet.
+- Desconecta el módem 4G (HAT) USB de la Raspberry Pi.
+- Ejecuta el script `prepare.sh`:
 
+```plaintext
+sudo bash ./scripts/configure.sh
+```
+- El script configurará la IP estática en la interfaz Ethernet y reiniciará la Raspberry Pi.
+- Luego, continúa al último paso.
+
+### Paso 3: Activar módem y NAT
+- Verifica que el módem 4G esté conectado, antena instalada y SIM insertada con saldo.
+- Asegúrate de que el cable Ethernet esté desconectado.
+- Ejecuta el script finalize.sh:
+
+```plaintext
+sudo bash ./scripts/finalize.sh
+```
+
+- El script activará el módem, conectará con el APN, configurará DHCP y NAT para compartir Internet.
+- Al finalizar, los dispositivos conectados por Ethernet tendrán acceso a Internet a través del módem 4G.
+
+## Notas
+- Todos los scripts deben ejecutarse con permisos de superusuario (`sudo`).
+- Lee los mensajes y advertencias que aparecen en cada script antes de continuar.
+- Asegúrate de cumplir los requisitos previos indicados en cada paso para evitar errores.
+- Dar permisos con `chmod +x (path)` para ejecutar, posteriormente
