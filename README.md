@@ -1,6 +1,7 @@
 # Raspberry 4G Router
 
 Este proyecto permite convertir una Raspberry Pi equipada con un HAT 4G (modelo EC25-A) en un router 4G funcional. El dispositivo compartirá conexión a internet móvil a través de su puerto Ethernet (`eth0`), actuando como puerta de enlace para otros dispositivos conectados por cable.
+Utiliza APN "internet.tigo.py", para utilizar con su compañía de preferencia, cambiar la línea de código 31 en el archivo `/scripts/finalize.sh` por otra APN.
 
 ## 🛠️ Requisitos
 
