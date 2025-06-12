@@ -12,7 +12,7 @@ Este proyecto permite convertir una Raspberry Pi equipada con un HAT 4G (modelo 
 - Cable Ethernet
 
 ### Software
-- Raspberry Pi OS (probado con Legacy Desktop)
+- Raspberry Pi OS recién cargado (probado con Legacy Desktop)
 - Acceso por terminal (local o SSH)
 
 ## Descripción
