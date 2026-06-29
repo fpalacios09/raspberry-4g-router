@@ -53,9 +53,10 @@ El script desactivará NetworkManager, instalará dependencias y reiniciará la 
 Luego conecta el módem 4G por USB y continúa al siguiente paso.
 
 ### Paso 2: Configurar IP estática y DNS
-- Asegúrate de que la Raspberry Pi esté conectada a Internet por cable Ethernet.
-- Desconecta el módem 4G (HAT) USB de la Raspberry Pi.
-- Ejecuta el script `prepare.sh`:
+- El hat con el módem EC25A debe estar colocado y conectado por USB a la Raspberry, esto en caso de que el hat no sea reconocido automáticamente por UART por la raspberry.
+- Las antenas 4G deben estar conectadas en los pines MAIN y DEV del módem, debidamente enroscadas en los adaptadores.
+- El cable Ethernet debe estar DESCONECTADO de la Raspberry.
+- Ejecuta el script `configure.sh`:
 
 ```plaintext
 sudo bash ./scripts/configure.sh
