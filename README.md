@@ -7,9 +7,9 @@ Utiliza APN "internet.tigo.py", para utilizar con su compañía de preferencia, 
 
 ### Hardware
 - Raspberry Pi (probado en Raspberry Pi 2B v1.1)
-- Módulo HAT 4G EC25-A (con conexión por USB)
-- Antena 4G
-- Tarjeta SIM con saldo y datos activos
+- Módulo 4G EC25-A (con su respectivo Hat con conexión por USB disponible)
+- Antenas 4G, con sus respectivos adaptadores.
+- Tarjeta SIM con saldo de telefonía y datos activos
 - Cable Ethernet
 
 ### Software
@@ -65,7 +65,7 @@ sudo bash ./scripts/configure.sh
 - Luego, continúa al último paso.
 
 ### Paso 3: Activar módem y NAT
-- Verifica que el módem 4G esté conectado, antena instalada y SIM insertada con saldo.
+- Verifica que el hat con el módem 4G esté conectado, antena instalada y SIM insertada con saldo.
 - Asegúrate de que el cable Ethernet esté desconectado.
 - Ejecuta el script finalize.sh:
 
