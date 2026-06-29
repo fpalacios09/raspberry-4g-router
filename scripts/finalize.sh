@@ -27,8 +27,27 @@ mmcli -L || { echo "No se detectó el módem. Verificá conexión USB y SIM."; e
 echo "2. Activando módem manualmente..."
 sudo mmcli -m 0 -e || { echo "Error al activar el módem."; exit 1; }
 
+echo "3. Configuración de APN..."
+echo "Ingrese la APN de la telefonía que va a utilizar."
+echo
+echo "APN usuales en Paraguay:"
+echo " - Tigo Paraguay:  internet.tigo.py"
+echo " - Claro Paraguay: igprs.claro.com.py"
+echo
+echo "En caso de necesitar otra telefonía, verifique la APN correspondiente"
+echo "e introdúzcala aquí sin comillas. Luego presione ENTER."
+echo
+read -r -p "APN: " APN
+
+if [ -z "$APN" ]; then
+    echo "❌ No se introdujo ninguna APN."
+    echo "Se debe introducir una APN para continuar."
+    echo "🛑 Configuración cancelada."
+    exit 1
+fi
+
 echo "3. Conectando usando APN..."
-sudo mmcli -m 0 --simple-connect="apn=internet.tigo.py" || { echo "Error al conectar el módem con APN."; exit 1; }
+sudo mmcli -m 0 --simple-connect="apn=$APN" || { echo "Error al conectar el módem con APN."; exit 1; }
 
 echo "4. Esperando unos segundos para que se establezca la conexión..."
 sleep 10
