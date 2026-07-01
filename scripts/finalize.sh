@@ -22,10 +22,35 @@ if [[ ! $REPLY =~ ^[Ss]$ ]]; then
 fi
 
 echo "1. Verificando detección del módem..."
-mmcli -L || { echo "No se detectó el módem. Verificá conexión USB y SIM."; exit 1; }
+sleep 1
+echo "."
+sleep 1
+echo "."
+sleep 1
+echo "."
+sleep 1
+echo "."
+sleep 1
+echo "."
+
+MODEM_ID=$(mmcli -L | awk -F'/Modem/' '/Modem\// {print $2}' | awk '{print $1}' | head -n 1)
+
+if [ -z "$MODEM_ID" ]; then
+    echo "No se detectó ningún módem."
+    echo "Verificá:"
+    echo "1. Que el HAT EC25-A esté conectado por USB"
+    echo "2. Que la antena esté instalada"
+    echo "3. Que la SIM esté insertada"
+    echo "4. Que el módem aparezca con:"
+    echo "   lsusb"
+    echo "   ls /dev/ttyUSB* /dev/cdc-wdm*"
+    exit 1
+fi
+
+echo "✓ Módem detectado con ID: $MODEM_ID"
 
 echo "2. Activando módem manualmente..."
-sudo mmcli -m 0 -e || { echo "Error al activar el módem."; exit 1; }
+sudo mmcli -m "$MODEM_ID" -e || { echo "Error al activar el módem."; exit 1; }
 
 echo "3. Configuración de APN..."
 echo "Ingrese la APN de la telefonía que va a utilizar."
@@ -47,7 +72,7 @@ if [ -z "$APN" ]; then
 fi
 
 echo "3. Conectando usando APN..."
-sudo mmcli -m 0 --simple-connect="apn=$APN" || { echo "Error al conectar el módem con APN."; exit 1; }
+sudo mmcli -m "$MODEM_ID" --simple-connect="apn=$APN" || { echo "Error al conectar el módem con APN."; exit 1; }
 
 echo "4. Esperando unos segundos para que se establezca la conexión..."
 sleep 10
